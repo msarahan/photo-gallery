@@ -28,3 +28,8 @@ if findmnt -rno SOURCE,TARGET $DEVNAME >/dev/null; then
 else
     echo "No deviced named $DEVNAME was found." >> /usr/src/app/usb.log
 fi
+
+# restart the server to pick up new changes
+killall npm
+cd /usr/src/app
+npm start &
